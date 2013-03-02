@@ -11,3 +11,7 @@ out/
 libuv/
 leveldb.Makefile
 Makefile
+*.vcxproj*
+Default/
+leveldb.sln
+gyp-win-tool

@@ -39,7 +39,7 @@
             '-Wno-sign-compare'
           , '-Wno-unused-but-set-variable'
         ]
-      , 'sources': [
+      , 'Xsources': [
             'libuv_port/uv_condvar_posix.cc'
         ]
     }]
@@ -61,7 +61,7 @@
             '-Wno-sign-compare'
           , '-Wno-unused-but-set-variable'
         ]
-      , 'sources': [
+      , 'Xsources': [
             'libuv_port/uv_condvar_posix.cc'
         ]
     }]
@@ -82,7 +82,7 @@
               , '-Wno-unused-function'
             ]
         }
-      , 'sources': [
+      , 'Xsources': [
             'libuv_port/uv_condvar_posix.cc'
         ]
     }]
@@ -101,7 +101,6 @@
           'port/port.h'
         , 'libuv_port/port_uv.h'
         , 'libuv_port/port_uv.cc'
-        , 'libuv_port/uv_condvar.h'
         , 'db/builder.cc'
         , 'db/builder.h'
         , 'db/db_impl.cc'

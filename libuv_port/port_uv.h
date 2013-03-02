@@ -25,12 +25,17 @@
       defined(OS_DRAGONFLYBSD) || defined(OS_ANDROID)
   #include <sys/types.h>
   #include <sys/endian.h>
+#elif defined(_MSC_VER)
+  #define PLATFORM_IS_LITTLE_ENDIAN true
+  #define snprintf _snprintf
+  #define close _close
+  #define fread_unlocked _fread_nolock
 #else
   #include <endian.h>
 #endif
 
 #include <uv.h>
-#include "uv_condvar.h"
+
 #ifdef SNAPPY
 #include <snappy.h>
 #endif
@@ -91,7 +96,7 @@ class CondVar {
   void Signal();
   void SignalAll();
  private:
-  ldb_uv_cond_t cv_;
+  uv_cond_t cv_;
   Mutex* mu_;
 };
 
