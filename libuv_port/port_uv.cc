@@ -20,15 +20,15 @@ void Mutex::Lock() { uv_mutex_lock(&mu_); }
 
 void Mutex::Unlock() { uv_mutex_unlock(&mu_); }
 
-CondVar::CondVar(Mutex* mu) : mu_(mu) { ldb_uv_cond_init(&cv_); }
+CondVar::CondVar(Mutex* mu) : mu_(mu) { uv_cond_init(&cv_); }
 
-CondVar::~CondVar() { ldb_uv_cond_destroy(&cv_); }
+CondVar::~CondVar() { uv_cond_destroy(&cv_); }
 
-void CondVar::Wait() { ldb_uv_cond_wait(&cv_, &mu_->mu_); }
+void CondVar::Wait() { uv_cond_wait(&cv_, &mu_->mu_); }
 
-void CondVar::Signal() { ldb_uv_cond_signal(&cv_); }
+void CondVar::Signal() { uv_cond_signal(&cv_); }
 
-void CondVar::SignalAll() { ldb_uv_cond_broadcast(&cv_); }
+void CondVar::SignalAll() { uv_cond_broadcast(&cv_); }
 
 void InitOnce(OnceType* once, void (*initializer)()) { uv_once(once, initializer); }
 
