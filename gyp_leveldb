@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gyp leveldb.gyp --depth=. -f make  -Dlibrary=static_library
+make
